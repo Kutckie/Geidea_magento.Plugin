@@ -86,7 +86,7 @@ public class CheckoutFlow {
     @AfterClass
     public void tearDown() {
         try {
-            Thread.sleep(10000);
+            Thread.sleep(550000);
         } catch (InterruptedException Ignore) {}
         driver.quit();
     }
