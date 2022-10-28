@@ -7,13 +7,13 @@ public class Configs {
     protected static Properties PROPERTIES;
     static {
         try {
-            //указание пути до файла с настройками
+            //config path
             fileInputStream = new FileInputStream("src/test/TestResources/Configs");
             PROPERTIES = new Properties();
             PROPERTIES.load(fileInputStream);
         } catch (IOException e) {
             e.printStackTrace();
-            //обработка возможного исключения (нет файла и т.п.)
+            //exception preocessing
         } finally {
             if (fileInputStream != null)
                 try {
@@ -21,7 +21,7 @@ public class Configs {
                 } catch (IOException e) {
                     e.printStackTrace(); } } }
     /**
-     * метод для возврата строки со значением из файла с настройками
+     * config vars load
      */
     public static String getProperty(String key) {
         return PROPERTIES.getProperty(key); } }

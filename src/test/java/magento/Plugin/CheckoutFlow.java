@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import org.testng.annotations.AfterClass;
 import page.Obj.*;
 
 import java.time.Duration;
@@ -20,7 +21,7 @@ public class CheckoutFlow {
     public static Emulator emulator;
 
     /**
-     * осуществление первоначальной настройки
+     * Init_setup
      **/
     @BeforeClass
     public static void setup() {
@@ -78,12 +79,15 @@ public class CheckoutFlow {
     @Test(dependsOnMethods = {"CardFormSequence"})
     public static void EmulatorSubmition() {
         emulator = new Emulator(driver);
-        driver.switchTo().frame(driver.findElement(By.id("redirectTo3ds1Frame")));  //iframe switching
+        driver.switchTo().frame(driver.findElement(By.id("redirectTo3ds1Frame")));  //i-frame switch
         Emulator.emulatorSubmit();
     }
 
-
-   /* @AfterClass
+    @AfterClass
     public void tearDown() {
-    } **/
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException Ignore) {}
+        driver.quit();
+    }
 }

@@ -35,6 +35,6 @@ public class PaymentPage {
 
     public static void continuePayment(){
         JavascriptExecutor ex=(JavascriptExecutor)driver;
-        ex.executeScript("arguments[0].click()", ContinuePaymentButton); //разобраться как работает эта хуйня (ожидание загрузки элемента)
+        ex.executeScript("arguments[0].click()", ContinuePaymentButton); //wait for element load
     }
 }
